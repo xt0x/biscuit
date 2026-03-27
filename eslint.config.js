@@ -6,7 +6,14 @@ import globals from "globals";
 
 export default [
   {
-    ignores: ["artifacts/**", "cache/**", "coverage/**", "dist/**", "node_modules/**"],
+    ignores: [
+      "artifacts/**",
+      "cache/**",
+      "coverage/**",
+      "dist/**",
+      "node_modules/**",
+      "references/**",
+    ],
   },
   {
     ...js.configs.recommended,
