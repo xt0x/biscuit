@@ -4,9 +4,10 @@ pragma solidity ^0.8.28;
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {BIP39} from "./libs/BIP39.sol";
 import {BIP39Storage} from "./libs/BIP39Storage.sol";
+import {IMnemonic} from "./interfaces/IMnemonic.sol";
 
 /// @notice Stores a BIP39 wordlist and exposes mnemonic generation/validation.
-contract Mnemonic is Ownable {
+contract Mnemonic is IMnemonic, Ownable {
   using BIP39Storage for BIP39Storage.Storage;
 
   /// @notice Revert when the wordlist is already locked.
@@ -14,9 +15,6 @@ contract Mnemonic is Ownable {
 
   /// @notice Revert when attempting to lock before full registration.
   error WordListIncomplete(uint16 count);
-
-  /// @notice Emitted when the wordlist is locked.
-  event SetWordListLocked();
 
   /// @notice Storage structure holding a BIP39 word list of 2048 words
   BIP39Storage.Storage private bip39Storage;
@@ -43,7 +41,10 @@ contract Mnemonic is Ownable {
   /**
    * @notice Generate a BIP39 mnemonic from the given seed.
    */
-  function generateMnemonic(uint256 strength, bytes32 seed) public view returns (string[] memory) {
+  function generateMnemonic(
+    uint256 strength,
+    bytes32 seed
+  ) public view override returns (string[] memory) {
     return BIP39.generate(bip39Storage, strength, seed);
   }
 
