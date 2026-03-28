@@ -22,8 +22,19 @@
 # Environment variables
 .env
 
+# Rendered outputs
+/tmp
+
 # AGENTS.md file
 /AGENTS.md
 
 # References directory
 /references
+
+# assets/fonts is ignored by default.
+assets/fonts/**/*
+assets/fonts/**/*
+!assets/fonts/**/LICENSE
+!assets/fonts/**/*.ttf
+
+

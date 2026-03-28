@@ -5,6 +5,7 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {IBiscuitBuilder} from "./interfaces/IBiscuitBuilder.sol";
 import {IBiscuitFont} from "./interfaces/IBiscuitFont.sol";
 import {IMnemonic} from "./interfaces/IMnemonic.sol";
+import {Base64} from "@openzeppelin/contracts/utils/Base64.sol";
 import {BiscuitMetadata} from "./libs/BiscuitMetadata.sol";
 import {BiscuitRenderer} from "./libs/BiscuitRenderer.sol";
 import {Utils} from "./libs/Utils.sol";
@@ -121,8 +122,8 @@ contract BiscuitBuilder is Ownable, IBiscuitBuilder {
   ) internal view returns (BiscuitRenderer.SVGParams memory) {
     return
       BiscuitRenderer.SVGParams({
-        letters: font.letters(),
-        digits: font.digits(),
+        letters: bytes(Base64.encode(font.letters())),
+        digits: bytes(Base64.encode(font.digits())),
         mnemonic: mnemonic.generateMnemonic(seed.mnemonicStrength, seed.mnemonicSeed)
       });
   }
