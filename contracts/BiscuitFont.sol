@@ -34,21 +34,21 @@ contract BiscuitFont is IBiscuitFont, Ownable {
   }
 
   /**
-   * @notice Return the concatenated letters binary payload.
+   * @notice Return the concatenated letters raw woff2 payload.
    */
   function letters() public view override returns (bytes memory) {
     return _concatenate(_letters);
   }
 
   /**
-   * @notice Return the concatenated digits binary payload.
+   * @notice Return the concatenated digits raw woff2 payload.
    */
   function digits() public view override returns (bytes memory) {
     return _concatenate(_digits);
   }
 
   /**
-   * @notice Add a batch of Letters images.
+   * @notice Add a batch of Letters font data.
    * @dev This function can only be called by the owner.
    * Uses the “Caveat” typeface by Impallari Type for creating this letters.
    * License: https://fonts.google.com/specimen/Caveat/license
@@ -59,7 +59,7 @@ contract BiscuitFont is IBiscuitFont, Ownable {
   }
 
   /**
-   * @notice Add a batch of Digits images.
+   * @notice Add a batch of Digits font data.
    * @dev This function can only be called by the owner.
    * Uses the “Inter” typeface by Impallari Type for creating this letters.
    * License: https://fonts.google.com/specimen/Inter/license
