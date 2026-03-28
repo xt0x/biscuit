@@ -28,9 +28,6 @@
 # AGENTS.md file
 /AGENTS.md
 
-# References directory
-/references
-
 # assets/fonts is ignored by default.
 assets/fonts/**/*
 assets/fonts/**/*

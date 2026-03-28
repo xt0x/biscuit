@@ -29,6 +29,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^8.57.2
         version: 8.57.2(eslint@10.1.0)(typescript@5.8.3)
+      bip39:
+        specifier: ^3.1.0
+        version: 3.1.0
       dotenv:
         specifier: ^17.2.0
         version: 17.3.1
@@ -65,6 +68,9 @@ importers:
       viem:
         specifier: ^2.47.6
         version: 2.47.6(typescript@5.8.3)(zod@3.25.76)
+      word-list-json:
+        specifier: ^0.2.0
+        version: 0.2.0
 
 packages:
 
@@ -784,6 +790,9 @@ packages:
     engines: {node: '>= 18.20.6'}
     peerDependencies:
       ajv: 4.11.8 - 8
+
+  bip39@3.1.0:
+    resolution: {integrity: sha512-c9kiwdk45Do5GL0vJMe7tS95VjCii65mYAH7DfWl3uW8AVzXKQVUm64i3hzVybBDMp9r7j9iNxR85+ul8MdN/A==}
 
   bn.js@4.12.3:
     resolution: {integrity: sha512-fGTi3gxV/23FTYdAoUtLYp6qySe2KE3teyZitipKNRuVYcBkoP/bB3guXN/XVKUe9mxCHXnc9C4ocyz8OmgN0g==}
@@ -1558,6 +1567,10 @@ packages:
 
   woff2sfnt-sfnt2woff@1.0.0:
     resolution: {integrity: sha512-edK4COc1c1EpRfMqCZO1xJOvdUtM5dbVb9iz97rScvnTevqEB3GllnLWCmMVp1MfQBdF1DFg/11I0rSyAdS4qQ==}
+
+  word-list-json@0.2.0:
+    resolution: {integrity: sha512-A0ZuPMpXOjC8Wj0PxNWg5MB63AooXlGqaxCZOgr7anmDr4kEeP0arsaRRCSxahuZ3GVrd8OBZ+IBlpL6z7kb9A==}
+    engines: {node: '>=0.10.0'}
 
   word-wrap@1.2.5:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
@@ -2384,6 +2397,10 @@ snapshots:
       jsonpointer: 5.0.1
       leven: 3.1.0
 
+  bip39@3.1.0:
+    dependencies:
+      '@noble/hashes': 1.8.0
+
   bn.js@4.12.3: {}
 
   bn.js@5.2.3: {}
@@ -3194,6 +3211,8 @@ snapshots:
   woff2sfnt-sfnt2woff@1.0.0:
     dependencies:
       pako: 1.0.11
+
+  word-list-json@0.2.0: {}
 
   word-wrap@1.2.5: {}
 
