@@ -6,3 +6,5 @@ node_modules
 .env
 pnpm-lock.yaml
 references
+tmp
+assets/fonts/**/*.subset.chunks.json

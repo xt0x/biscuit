@@ -13,6 +13,8 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
+    "fonts:prepare": "node scripts/prepare-fonts.mjs",
+    "fonts:deploy": "hardhat run scripts/deploy-fonts.mjs",
     "check": "pnpm lint && pnpm format:check && pnpm test",
     "test": "hardhat test",
     "test:solidity": "hardhat test solidity",
@@ -35,6 +37,7 @@
     "prettier": "^3.8.1",
     "prettier-plugin-solidity": "^2.3.1",
     "solhint": "^6.1.0",
+    "subset-font": "^1.7.0",
     "typescript": "~5.8.3",
     "viem": "^2.47.6"
   }
