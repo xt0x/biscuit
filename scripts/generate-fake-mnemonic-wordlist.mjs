@@ -22,9 +22,7 @@ const bip39List = wordlists.english.map((word) => word.toLowerCase());
 const bip39Words = new Set(bip39List);
 const { min: minLength, max: maxLength } = getLengthRange(bip39List);
 const candidates = Array.from(
-  new Set(
-    wordList.map((word) => String(word).toLowerCase().trim()).filter(Boolean),
-  ),
+  new Set(wordList.map((word) => String(word).toLowerCase().trim()).filter(Boolean)),
 ).filter(
   (word) =>
     /^[a-z]+$/.test(word) &&
