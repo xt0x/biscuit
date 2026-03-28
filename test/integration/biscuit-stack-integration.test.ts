@@ -6,8 +6,8 @@ import { stringToHex } from "viem";
 const decodeBase64 = (input: string) => Buffer.from(input, "base64").toString("utf8");
 const toBigInt = (value: bigint | number) => (typeof value === "bigint" ? value : BigInt(value));
 
-const letters = stringToHex("QUJD");
-const digits = stringToHex("REVG");
+const letters = stringToHex("ABC");
+const digits = stringToHex("DEF");
 const wordsA = ["alpha", "beta", "gamma"];
 const wordsB = ["delta", "epsilon", "zeta"];
 

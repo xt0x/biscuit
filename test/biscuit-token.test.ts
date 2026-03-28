@@ -8,8 +8,8 @@ const toBigInt = (value: bigint | number) => (typeof value === "bigint" ? value 
 const zeroAddress = "0x0000000000000000000000000000000000000000" as const;
 
 const words = ["alpha", "beta", "gamma"];
-const letters = stringToHex("QUJD");
-const digits = stringToHex("REVG");
+const letters = stringToHex("ABC");
+const digits = stringToHex("DEF");
 
 type WalletClient = Awaited<
   ReturnType<typeof network.connect>

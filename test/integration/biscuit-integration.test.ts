@@ -11,8 +11,8 @@ describe("BiscuitRenderer + BiscuitMetadata (integration)", async () => {
   it("generateSVGImage matches raw SVG", async () => {
     const renderer = await viem.deployContract("BiscuitRendererHarness");
     const metadata = await viem.deployContract("BiscuitMetadataHarness");
-    const letters = stringToHex("QUJD");
-    const digits = stringToHex("REVG");
+    const letters = stringToHex("ABC");
+    const digits = stringToHex("DEF");
     const mnemonic = ["alpha", "beta", "gamma"];
 
     const svg = (await renderer.read.generateSVG([letters, digits, mnemonic])) as string;
@@ -25,8 +25,8 @@ describe("BiscuitRenderer + BiscuitMetadata (integration)", async () => {
   it("tokenURI JSON image SVG matches raw SVG", async () => {
     const renderer = await viem.deployContract("BiscuitRendererHarness");
     const metadata = await viem.deployContract("BiscuitMetadataHarness");
-    const letters = stringToHex("QUJD");
-    const digits = stringToHex("REVG");
+    const letters = stringToHex("ABC");
+    const digits = stringToHex("DEF");
     const mnemonic = ["alpha", "beta", "gamma"];
 
     const svg = (await renderer.read.generateSVG([letters, digits, mnemonic])) as string;

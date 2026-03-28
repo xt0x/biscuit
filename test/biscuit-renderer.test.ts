@@ -53,8 +53,8 @@ describe("BiscuitRenderer (unit)", async () => {
 
     const svg = (await renderer.read.generateSVG([letters, digits, ["alpha", "beta"]])) as string;
 
-    assert.ok(svg.includes("data:font/woff2; charset=utf-8; base64,QUJD"));
-    assert.ok(svg.includes("data:font/woff2; charset=utf-8; base64,REVG"));
+    assert.ok(svg.includes("data:font/woff2;base64,QUJD"));
+    assert.ok(svg.includes("data:font/woff2;base64,REVG"));
     assert.ok(svg.includes('class="index"'));
     assert.ok(svg.includes('class="mnemonic"'));
     assert.ok(svg.includes(">alpha</text>"));
