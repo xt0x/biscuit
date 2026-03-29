@@ -2,6 +2,7 @@ import { network } from "hardhat";
 import { readFile, mkdir, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { randomBytes } from "node:crypto";
+import { fileURLToPath } from "node:url";
 import { keccak256, stringToHex, toHex } from "viem";
 
 const WORDLIST_PATH = new URL("../assets/mnemonic/fake-wordlist.json", import.meta.url);
@@ -13,7 +14,8 @@ const DIGITS_CHUNKS_PATH = new URL(
   "../assets/fonts/inter/Inter.subset.chunks.json",
   import.meta.url,
 );
-const OUT_PATH = "/Users/xx/Developer/biscuit/tmp/fake-mnemonic.svg";
+const OUT_URL = new URL("../outputs/fake-mnemonic.svg", import.meta.url);
+const OUT_PATH = fileURLToPath(OUT_URL);
 
 const loadWordlist = async () => {
   const raw = await readFile(WORDLIST_PATH, "utf8");

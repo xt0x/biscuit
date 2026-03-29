@@ -72,8 +72,8 @@ describe("BiscuitFont (integration, real fonts)", async () => {
     const json = JSON.parse(decodeBase64(encoded)) as { image: string; name: string };
     assert.equal(json.name, "Biscuit #1");
 
-    await mkdir("tmp", { recursive: true });
-    await writeFile("tmp/biscuit-font-real.svg", svg, "utf8");
-    await writeFile("tmp/biscuit-font-real.json", JSON.stringify(json, null, 2), "utf8");
+    await mkdir("outputs", { recursive: true });
+    await writeFile("outputs/biscuit-font-real.svg", svg, "utf8");
+    await writeFile("outputs/biscuit-font-real.json", JSON.stringify(json, null, 2), "utf8");
   });
 });

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.28;
 
 // solhint-disable quotes
@@ -15,13 +15,16 @@ library BiscuitRenderer {
   uint256 private constant _ROWS = 6;
 
   /// @notice Horizontal offset when duplicating columns
-  uint256 private constant _STEP_X = 103;
+  uint256 private constant _STEP_X = 110;
 
   /// @notice Vertical offset when duplicating rows
   uint256 private constant _STEP_Y = 24;
 
   /// @notice Offset in X direction from index number to start drawing word
-  uint256 private constant _LETTERS_START_OFFSET_X = 10;
+  uint256 private constant _LETTERS_START_OFFSET_X = 8;
+
+  /// @notice Vertical offset for lines and mnemonic baseline relative to index
+  uint256 private constant _LINE_AND_WORD_OFFSET_Y = 2;
 
   struct SVGParams {
     bytes letters; // Caveat Font (base64)
@@ -37,7 +40,7 @@ library BiscuitRenderer {
       string(
         // prettier-ignore
         abi.encodePacked(
-          '<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="width:100%;background:#fff;">',
+          '<svg viewBox="0 0 540 540" xmlns="http://www.w3.org/2000/svg" style="width:100%;background:#fff;">',
             '<defs>',
               '<style>',
                 '@font-face{',
@@ -55,19 +58,22 @@ library BiscuitRenderer {
                   'src: url("data:font/woff2;base64,', params.letters, '"); format("woff2");',
                 '}',
                 '.index {',
+                  'fill: #000;',
                   'font-family: "Inter";',
                   'font-size: 6px;',
                 '}',
                 '.mnemonic {',
+                  'fill: #000;',
                   'font-family: "Caveat";',
-                  'font-size: 18px;',
+                  'font-size: 24px;',
+                  'font-weight: 700;',
                 '}',
               '</style>',
-              '<path id="path" d="M0 0 83 0" stroke="#000" stroke-width="0.5"/>',
+              '<path id="path" d="M0 0 90 0" stroke="#000" stroke-width="0.2"/>',
               _generatePathRow(),
             '</defs>',
-            '<rect width="512" height="512" fill="#fff"/>',
-            '<g transform="translate(60, 204)">',
+            '<rect width="540" height="540" fill="#fff"/>',
+            '<g transform="translate(60, 208)">',
               _generatePathColumn(),
               _generateArt(params.mnemonic),
             '</g>',
@@ -93,7 +99,11 @@ library BiscuitRenderer {
             '<text class="index" ', 'x="', (i * _STEP_X).toString(), '" y="', (j * _STEP_Y).toString(), '">',
               (idx + 1).toString(),
             ". </text>",
-            '<text class="mnemonic" x="', (i * _STEP_X + _LETTERS_START_OFFSET_X).toString(), '" y="', (j * _STEP_Y).toString(), '">',
+            '<text class="mnemonic" x="',
+              (i * _STEP_X + _LETTERS_START_OFFSET_X).toString(),
+              '" y="',
+              (j * _STEP_Y + _LINE_AND_WORD_OFFSET_Y).toString(),
+            '">',
               idx < dataLength ? data[idx] : "",
             "</text>"
           );
@@ -130,7 +140,7 @@ library BiscuitRenderer {
         // prettier-ignore
         colPaths = abi.encodePacked(
           colPaths,
-          '<use href="#row" y="', (i * _STEP_Y).toString(), '"/>'
+          '<use href="#row" y="', (i * _STEP_Y + _LINE_AND_WORD_OFFSET_Y).toString(), '"/>'
         );
       }
       return abi.encodePacked('<g id="grid" x="196" y="160">', colPaths, "</g>");

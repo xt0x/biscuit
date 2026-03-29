@@ -15,9 +15,9 @@ describe("BiscuitRenderer (unit)", async () => {
 
     assert.equal((rowStr.match(/href="#path"/g) || []).length, 4);
     assert.ok(rowStr.includes('x="0"'));
-    assert.ok(rowStr.includes('x="103"'));
-    assert.ok(rowStr.includes('x="206"'));
-    assert.ok(rowStr.includes('x="309"'));
+    assert.ok(rowStr.includes('x="110"'));
+    assert.ok(rowStr.includes('x="220"'));
+    assert.ok(rowStr.includes('x="330"'));
   });
 
   it("generatePathColumn: renders 6 row uses", async () => {
@@ -26,12 +26,12 @@ describe("BiscuitRenderer (unit)", async () => {
     const columnStr = hexToUtf8(column);
 
     assert.equal((columnStr.match(/href="#row"/g) || []).length, 6);
-    assert.ok(columnStr.includes('y="0"'));
-    assert.ok(columnStr.includes('y="24"'));
-    assert.ok(columnStr.includes('y="48"'));
-    assert.ok(columnStr.includes('y="72"'));
-    assert.ok(columnStr.includes('y="96"'));
-    assert.ok(columnStr.includes('y="120"'));
+    assert.ok(columnStr.includes('y="2"'));
+    assert.ok(columnStr.includes('y="26"'));
+    assert.ok(columnStr.includes('y="50"'));
+    assert.ok(columnStr.includes('y="74"'));
+    assert.ok(columnStr.includes('y="98"'));
+    assert.ok(columnStr.includes('y="122"'));
   });
 
   it("generateArt: renders 24 indices and supplied words", async () => {
