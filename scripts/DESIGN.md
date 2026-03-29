@@ -14,10 +14,10 @@ supporting contracts, and generate SVG outputs for local verification.
   - Deploys `BiscuitFont` and uploads letter/digit chunks.
   - Can also append chunks to an existing `BiscuitFont` address.
 - `render-svg.mjs`
-  - Deploys a renderer harness and writes a simple SVG to `tmp/`.
+  - Deploys a renderer harness and writes a simple SVG to `outputs/`.
 - `render-svg-fake-mnemonic.mjs`
   - Deploys `Mnemonic`, `BiscuitFont`, and `BiscuitBuilder` on a local network.
-  - Loads a fake wordlist and renders a mnemonic SVG to `tmp/`.
+  - Loads a fake wordlist and renders a mnemonic SVG to `outputs/`.
 - `generate-fake-mnemonic-wordlist.mjs`
   - Builds a deterministic fake 2048-word list for local tests.
 - `check-data-uri.mjs`
@@ -29,7 +29,7 @@ supporting contracts, and generate SVG outputs for local verification.
 
 - Inputs: font assets under `assets/fonts/*` and wordlists under
   `assets/mnemonic/*`.
-- Outputs: SVG files under `tmp/` and chunked fonts under `assets/fonts/*`.
+- Outputs: SVG files under `outputs/` and chunked fonts under `assets/fonts/*`.
 
 ## Network Assumptions
 

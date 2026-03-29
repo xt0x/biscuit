@@ -24,6 +24,7 @@
 
 # Rendered outputs
 /tmp
+/outputs
 
 # AGENTS.md file
 /AGENTS.md
@@ -33,5 +34,4 @@ assets/fonts/**/*
 assets/fonts/**/*
 !assets/fonts/**/LICENSE
 !assets/fonts/**/*.ttf
-
 
