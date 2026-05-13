@@ -12,7 +12,7 @@ const WORDS = ["alpha", "beta", "gamma"];
 const ensureFontChunks = () => {
   if (existsSync(LETTERS_PATH) && existsSync(DIGITS_PATH)) return true;
 
-  const result = spawnSync(process.execPath, ["scripts/prepare-fonts.mjs"], {
+  const result = spawnSync(process.execPath, ["tools/prepare-fonts.mjs"], {
     stdio: "inherit",
   });
   return result.status === 0 && existsSync(LETTERS_PATH) && existsSync(DIGITS_PATH);

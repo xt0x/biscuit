@@ -41,7 +41,7 @@ Manual steps:
 pnpm install
 pnpm fonts:prepare
 pnpm hardhat compile
-pnpm hardhat run scripts/render-svg.mjs
+pnpm hardhat run tools/render-svg.mjs
 ```
 
 Outputs are written to `outputs/`.
@@ -73,9 +73,9 @@ Hardhat loads `.env` automatically via `dotenv/config`.
 │   ├── libs/         # Shared libraries (rendering, utils)
 │   └── test/         # Solidity test harnesses
 ├── ignition/         # Hardhat Ignition modules
-├── scripts/          # Node/Hardhat scripts
 ├── test/             # TypeScript/Node tests
 │   └── integration/  # Integration tests
+├── tools/            # Node/Hardhat developer utilities
 └── outputs/          # Local outputs (generated SVGs, scratch files)
 </code></pre>
 
