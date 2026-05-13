@@ -15,6 +15,7 @@
     "format:check": "prettier . --check",
     "fonts:prepare": "node tools/prepare-fonts.mjs",
     "fonts:deploy": "hardhat run tools/deploy-fonts.mjs",
+    "ci": "pnpm check",
     "check": "pnpm lint && pnpm format:check && pnpm test",
     "test": "hardhat test",
     "test:solidity": "hardhat test solidity",
