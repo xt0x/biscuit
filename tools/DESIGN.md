@@ -1,9 +1,11 @@
-# Scripts Design
+# Tools Design
 
 ## Purpose
 
 This directory contains Node/Hardhat utilities used to prepare assets, deploy
-supporting contracts, and generate SVG outputs for local verification.
+supporting contracts, and generate SVG outputs for local verification. Shell
+entrypoints belong in `scripts/` if they are needed; CI and repository-wide
+checks should stay in `package.json` and `.github/workflows`.
 
 ## Script Inventory
 
@@ -15,15 +17,11 @@ supporting contracts, and generate SVG outputs for local verification.
   - Can also append chunks to an existing `BiscuitFont` address.
 - `render-svg.mjs`
   - Deploys a renderer harness and writes a simple SVG to `outputs/`.
-- `render-svg-fake-mnemonic.mjs`
-  - Deploys `Mnemonic`, `BiscuitFont`, and `BiscuitBuilder` on a local network.
-  - Loads a fake wordlist and renders a mnemonic SVG to `outputs/`.
+  - With `BISCUIT_RENDER_MODE=fake-mnemonic`, deploys `Mnemonic`,
+    `BiscuitFont`, and `BiscuitBuilder` on a local network, then renders a
+    mnemonic SVG.
 - `generate-fake-mnemonic-wordlist.mjs`
   - Builds a deterministic fake 2048-word list for local tests.
-- `check-data-uri.mjs`
-  - Sanity-checks data URIs produced by metadata/image renderers.
-- `lint-sol.mjs`
-  - Runs `solhint` with repo configuration.
 
 ## Inputs and Outputs
 
@@ -41,5 +39,6 @@ supporting contracts, and generate SVG outputs for local verification.
 
 - When Solidity changes, run `pnpm hardhat compile` before running
   render/deploy scripts to avoid stale artifacts.
-- `render-svg-fake-mnemonic.mjs` uses random seeds, so output is non-deterministic
-  unless the script is modified to accept a fixed seed.
+- `BISCUIT_RENDER_MODE=fake-mnemonic tools/render-svg.mjs` uses random seeds, so
+  output is non-deterministic unless the script is modified to accept a fixed
+  seed.

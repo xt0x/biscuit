@@ -16,4 +16,4 @@ fi
 pnpm install
 pnpm fonts:prepare
 pnpm hardhat compile
-pnpm hardhat run scripts/render-svg.mjs
+pnpm hardhat run tools/render-svg.mjs
